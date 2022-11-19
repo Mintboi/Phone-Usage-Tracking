@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <a class="logo" href="/">Pizza Hut</a>
+                <ul class="nv-l">
+                    <li><a href="/pizzas/create">Order Pizza</a></li>
+                    <li><a href="">Order Side</a></li>
+                    <li><a href="">Delicious Offers</a></li>
+                    <li><a href="">Drinks</a></li>
+                    <li><a href="">Other things</a></li>
+                </ul>
+                <ul class="nv">
+                    <li><a href="">Create account</a></li>
+                    <li><a href="">Sign in</a></li>
+                    <li class="dropdown">
+                        <a class="sh-c" href="/cart">shopping-cart</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-arrow"></div>
+                            <div class="fr">1 Item | Total Price</div>
+                            <div class="art-cart"><span id="demo"></span></div>
+                            <div class="fr"><a class="checkout-link" href="/cart">Checkout</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>

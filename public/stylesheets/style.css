@@ -1,0 +1,197 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+html{
+	overflow-y:hidden;
+	overflow: hidden;
+}
+header{
+	overflow: hidden;
+	overflow-y:hidden;
+	display: flex;
+	justify-content:center;
+	background-color: #100B1A;
+	position:relative;
+	top: -10px;
+	left: -8px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	
+}
+body{
+	color: #ffffff;
+	background-color: #000000;
+	font-family: Merriweather;
+	overflow-x: hidden;
+	margin-right: -15px;
+	
+}
+
+footer{
+	background:#282828;
+    min-height: 0%;
+	clear: both;
+	text-align:center;
+	left:-5px;
+	z-index:2;
+	height:0%;
+	height:30px;
+}
+
+	
+/* Images */
+.MTU, .logo{
+	width: 300px;
+	height: 85px;
+	padding: 0px 20px 9px 7px;
+	border-radius: 20px;
+	text-align: center;
+	border: none;
+
+}
+.MTU:hover{
+	padding: 0px 20px 5px 7px;
+	border-radius: 20px;
+	text-align: center;
+	border: solid #4717F6;
+
+}
+/* Classes */
+/* A second footer class is being used to align the footer to the bottom of a page on smaller pages */
+#footer{
+	position: fixed;
+	width:100%;
+	bottom: 0;
+	text-align:center;
+	bottom:20px;
+	height:40px;
+}
+	
+.table{
+	left: 500px;
+	right: 500px;
+	text-align:center;
+}
+.faq{
+	text-align: center;
+	background-color: #0E0B16; 
+}
+
+address{
+	 text-align: center;
+ }
+ 
+div:not(#container){
+	 position: relative;
+	 left: -4px;
+	 background: #253034;
+	 border: none;
+	 display: inline;
+	 text-align: center;
+	 z-index:1;
+	 padding:none;
+ }
+ 
+form{
+	text-align: center;
+}
+  .column {
+  float: left;
+  width: 33.3%;
+  height: 500px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.input{
+	border-radius: 100px;
+	
+}
+
+  /* Text styles */
+h1{
+	text-align: center;
+	color: #EDF5E1;
+	font-family: Fjalla One;
+
+}
+
+h2{
+	background-color: #05386B;
+	color: #ffffff;
+	text-align: center;
+}
+
+h3{
+	text-align:center;
+}
+
+
+a {
+	color: #E7DFDD;
+	font-size: 70%;
+	font-family:Roboto;
+	text-decoration: none;
+	padding: 10px 20px;
+	font-family: Fjalla One; 
+	border-radius: 50px;
+	border: solid #FFFFFF;
+
+}
+ a:hover {
+	color: #ffffff;
+	font-size: 70%;
+	padding: 10px 20px;
+	border-radius: 50px;
+	background:#4717F6;
+	transition: all 0.3s ease 0s;
+	border: solid #4717F6;
+ }
+    
+ /* navigation styling */
+nav {
+    float: left;
+    margin: 15px;
+	font-family: Fjalla One; 
+	color: #ffffff;
+	font-size: 140%;
+	padding: 10px;
+}
+
+textarea{
+	border-radius:50px;
+}
+
+#container{
+	height: 1500px;
+	width: 6000px;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    padding: 10px 15px;
+	
+}
+
+thead {
+    background: #05386b;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background: #282828;
+}

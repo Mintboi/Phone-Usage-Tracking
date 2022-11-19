@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang ="en-IE">
+<title></title>
+<head>
+    <meta charset ="utf-8">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link rel="shortcut icon" href="images/favicon.ico">
+    <title>Phone Usage Tracker</title>
+</head>
+<body>
+
+<header>
+<!-- Navigation menu -->
+<nav>
+          <a href="/phones/create">Create a report</a>
+          <a href="/phones/editOrDelete">Edit or Delete reports</a>
+</nav>
+<!-- MTU logo from MTU.ie -->
+<a href="http://localhost:3000/" class="MTU"><img src="images/MTU_Logo_White.png" alt="MTU-logo" class="logo"></a>
+<nav>
+		  <a href="/phones/help">Help</a>
+		  <a href="/phones/contactUs" class="contact">About Us</a>
+</nav>
+</header>
+
+<main>
+	<h1>Welcome to the MTU phone usage tracker</h1>
+	<h2>Your usage data:</h2>
+ <table id="table table-inverse">
+    <thead>
+      <tr>
+        <th>Browsing</th>
+        <th>Education</th>
+        <th>Shopping</th>
+        <th>Date</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for(var i=0; i < reportList.length; i++) { %>
+     <tr>
+       <td><%= reportList[i].browsing %></td>
+       <td><%= reportList[i].education %></td>
+       <td><%= reportList[i].shopping %></td>
+       <td><%= reportList[i].date %></td>
+     </tr>
+  <% } %>
+    </tbody>
+
+  </table>
+    </script>
+  </body>
+</main>
+</body>
