@@ -12,12 +12,10 @@
 <header>
 <!-- Navigation menu -->
 <nav>
+          <a href="/">Home</a>
           <a href="/phones/create">Create a report</a>
           <a href="/phones/editOrDelete">Edit or Delete reports</a>
-</nav>
-<!-- MTU logo from MTU.ie -->
-<a href="http://localhost:3000/" class="MTU"><img src="images/MTU_Logo_White.png" alt="MTU-logo" class="logo"></a>
-<nav>
+          <a href="/phones/dailyAverage">Average usage</a>
 		  <a href="/phones/help">Help</a>
 		  <a href="/phones/contactUs" class="contact">About Us</a>
 </nav>
@@ -25,31 +23,14 @@
 
 <main>
 	<h1>Welcome to the MTU phone usage tracker</h1>
-	<h2>Your usage data:</h2>
- <table id="table table-inverse">
-    <thead>
-      <tr>
-        <th>Browsing</th>
-        <th>Education</th>
-        <th>Shopping</th>
-        <th>Date</th>
+	<h2>This site has been created to help students track their phone usage</h2>
+	<h3>To create a report, select create a report on the navbar</h3>
+	<h3>To edit or delete a report, select edit or delete reports on the navbar</h3>
+	<h3>For more information please contact us or use the help page</h3>
 
-      </tr>
-    </thead>
-
-    <tbody>
-      <% for(var i=0; i < reportList.length; i++) { %>
-     <tr>
-       <td><%= reportList[i].browsing %></td>
-       <td><%= reportList[i].education %></td>
-       <td><%= reportList[i].shopping %></td>
-       <td><%= reportList[i].date %></td>
-     </tr>
-  <% } %>
-    </tbody>
 
   </table>
-    </script>
+
   </body>
 </main>
 </body>

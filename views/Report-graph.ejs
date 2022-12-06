@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang ="en-IE">
+<title></title>
+<head>
+    <meta charset ="utf-8">
+	<link rel="stylesheet" href="../stylesheets/style.css">
+	<link rel="shortcut icon" href="../images/favicon.ico">
+    <title>Phone Usage Tracker</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<header>
+<!-- Navigation menu -->
+<nav>
+          <a href="/">Home</a>
+          <a href="/phones/create">Create a report</a>
+          <a href="/phones/editOrDelete">Edit or Delete reports</a>
+          <a href="/phones/dailyAverage">Average usage</a>
+		  <a href="/phones/help">Help</a>
+		  <a href="/phones/contactUs" class="contact">About Us</a>
+</nav>
+</header>
+ <h1>Report Feedback</h1>
+<h1>Usage Graph: </h1>
+    <div class="chart"><canvas id="report" width="600" height="400" > </canvas></div>
+       <h1>Name:  <%= reportList[0].name%> </h1>
+     <h1>Total:  <%= total%> Hours</h1>
+<!--calculation for the users average daily usage -->
+     <h1>Average per day:  <%= Math.floor(total/(reportList.length * 3))%> Hours</h1>
+      <table id="table table-inverse">
+         <thead>
+           <tr>
+             <th>Name</th>
+             <th>Browsing</th>
+             <th>Education</th>
+             <th>Shopping</th>
+             <th>Date</th>
+
+           </tr>
+         </thead>
+
+         <tbody>
+           <% for(var i=0; i < reportList.length; i++) { %>
+          <tr>
+          <td><%= reportList[i].name %></td>
+            <td><%= reportList[i].browsing %></td>
+            <td><%= reportList[i].education %></td>
+            <td><%= reportList[i].shopping %></td>
+            <td><%= reportList[i].createdAt %></td>
+          </tr>
+       <% } %>
+         </tbody>
+
+<!--creates a graph that is used to display the users daily phone activity,
+ api did not allow for Labels so the graph is accompanied by a table with all user reports -->
+    <script>
+        data = [<% for(var i=0; i < dailyAverage.length; i++) { %>
+        {value: <%=dailyAverage[i]%>, color : "#<%= colorList[i]%>"}, <%}%>];
+        // Get the context of the canvas element we want to select
+        var countries= document.getElementById("report").getContext("2d");
+        new Chart(countries).Pie(data);
+
+    </script>
+</body>
+</html>

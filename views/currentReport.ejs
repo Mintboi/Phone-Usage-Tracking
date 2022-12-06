@@ -12,12 +12,10 @@
 <header>
 <!-- Navigation menu -->
 <nav>
+          <a href="/">Home</a>
           <a href="/phones/create">Create a report</a>
           <a href="/phones/editOrDelete">Edit or Delete reports</a>
-</nav>
-<!-- MTU logo from MTU.ie -->
-<a href="http://localhost:3000/" class="MTU"><img src="../images/MTU_Logo_White.png" alt="MTU-logo" class="logo"></a>
-<nav>
+          <a href="/phones/dailyAverage">Average usage</a>
 		  <a href="/phones/help">Help</a>
 		  <a href="/phones/contactUs" class="contact">About Us</a>
 </nav>
@@ -27,6 +25,7 @@
  <table id="table table-inverse">
     <thead>
       <tr>
+        <th>Name</th>
         <th>Browsing</th>
         <th>Education</th>
         <th>Shopping</th>
@@ -38,13 +37,11 @@
     <tbody>
       <% for(var i=0; i < reportList.length; i++) { %>
      <tr>
-
+     <td><%= reportList[i].name %></td>
        <td><%= reportList[i].browsing %></td>
        <td><%= reportList[i].education %></td>
        <td><%= reportList[i].shopping %></td>
-       <td><%= reportList[i].date %></td>
-
-
+       <td><%= reportList[i].createdAt %></td>
      </tr>
   <% } %>
     </tbody>

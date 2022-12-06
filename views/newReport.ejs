@@ -2,6 +2,7 @@
 <html lang ="en-IE">
 <title></title>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <meta charset ="utf-8">
 	<link rel="stylesheet" href="../stylesheets/style.css">
 	<link rel="shortcut icon" href="../images/favicon.ico">
@@ -12,12 +13,10 @@
 <header>
 <!-- Navigation menu -->
 <nav>
+          <a href="/">Home</a>
           <a href="/phones/create">Create a report</a>
           <a href="/phones/editOrDelete">Edit or Delete reports</a>
-</nav>
-<!-- MTU logo from MTU.ie -->
-<a href="http://localhost:3000/" class="MTU"><img src="../images/MTU_Logo_White.png" alt="MTU-logo" class="logo"></a>
-<nav>
+          <a href="/phones/dailyAverage">Average usage</a>
 		  <a href="/phones/help">Help</a>
 		  <a href="/phones/contactUs" class="contact">About Us</a>
 </nav>
@@ -27,23 +26,59 @@
 	<h1>Create a phone usage report</h1>
 	<h2>Usage form</h2>
 	<form action="/phones/create" method="post">
-        <p>
-            <label>Hours Spent on Education:</label> <input type="Number" name="education" class="input" min="0" required>
+	        <p>
+                    <label>Name:</label> <input type="String" name="name" class="input" required>
+    	    </p>
+            <p>
+            <label>Hours Spent on Education:</label> <input type="Number" name="education" class="input" min="0" max="24" required>
             </p>
             <p>
-                <label>Hours Spent Browsing:</label> <input type="Number" name="browsing" required class="input" min="0" required>
+                <label>Hours Spent Browsing:</label> <input type="Number" name="browsing" required class="input" min="0" max="24" required>
             </p>
-            <p>
-                <label>Hours Spent Shopping:</label> <input type="Number" name="shopping" class="input" min="0" required>
-		</p>
-        <p>
-            <label>Date:</label> <input type="Date" name="date" class="input" max="2019-12-25" step="1" required>
-        </p>
 
+            <p>
+                <label>Hours Spent Shopping:</label> <input type="Number" name="shopping" class="input" min="0" max="24" required>
+		</p>
+            <p>
+                <label>Total: </label> <input value = "" id="sum" type="Number" min="0" max="24" required>
+		</p>
 		<p>
 			<input type="submit" value="Submit" class="submit">
 			<input type="reset" value="Cancel">
 		</p>
+
+
+		<script>
+
+		$("p").click(function(){
+
+        		//iterate through each textboxes and add keyup
+        		//handler to trigger sum event
+        		$(".input").each(function() {
+
+        			$(this).keyup(function(){
+        				calculateSum();
+        			});
+
+        		});
+
+        	});
+
+        	function calculateSum() {
+
+        		var sum = 0;
+        		//iterate through each textboxes and add the values
+        		$(".input").each(function() {
+
+        			//add only if the value is number
+        			if(!isNaN(this.value) && this.value.length!=0) {
+        				sum += parseFloat(this.value);
+        			}
+        		});
+        		//.toFixed() method will roundoff the final sum to 2 decimal places
+        		document.getElementById("sum").value = sum;
+        	}
+        	</script>
 	</form>
 </main>
 </body>

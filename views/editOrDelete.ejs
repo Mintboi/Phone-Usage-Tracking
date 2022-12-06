@@ -12,12 +12,10 @@
 <header>
 <!-- Navigation menu -->
 <nav>
+           <a href="/">Home</a>
           <a href="/phones/create">Create a report</a>
           <a href="/phones/editOrDelete">Edit or Delete reports</a>
-</nav>
-<!-- MTU logo from MTU.ie -->
-<a href="http://localhost:3000/" class="MTU"><img src="../images/MTU_Logo_White.png" alt="MTU-logo" class="logo"></a>
-<nav>
+          <a href="/phones/dailyAverage">Average usage</a>
 		  <a href="/phones/help">Help</a>
 		  <a href="/phones/contactUs" class="contact">About Us</a>
 </nav>
@@ -26,14 +24,35 @@
 <main>
 	<h1>Edit or Delete a report</h1>
 	<h2>Please select a form to Edit</h2>
-	<form action="/phones/editOrDelete" method="post">
-		<p>
-			<label>Date of Creation:</label> <input type="date" name="date" required class="input" required>
-		</p>
-		<p>
-			<input type="submit" value="Edit" class="submit">
-			<input type="reset" value="Cancel">
-		</p>
+ <table id="table table-inverse">
+    <thead>
+      <tr>
+      <th>Name</th>
+        <th>Browsing</th>
+        <th>Education</th>
+        <th>Shopping</th>
+        <th>Date and Time</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+<!--creates a table of user reports accompanied by the edit and delete buttons -->
+      <% for(var i=0; i < reportList.length; i++) { %>
+     <tr>
+      <td><%= reportList[i].name %></td>
+       <td><%= reportList[i].browsing %></td>
+       <td><%= reportList[i].education %></td>
+       <td><%= reportList[i].shopping %></td>
+       <td><%= reportList[i].createdAt %></td>
+       <td><form action="/phones/editOrDelete" method="post"><input type="String" value = "<%= reportList[i]._id %>" name="id" class="id" readonly><input type="submit" value="Edit" class="submit"></form></td>
+       <td><form action="/phones/delete" method="post"><input type="String" value = "<%= reportList[i]._id %>" name="id" class="id" readonly><input type="submit" value="Delete" class="submit"></form></td>
+     </tr>
+     <% } %>
+    </tbody>
 	</form>
 </main>
 </body>

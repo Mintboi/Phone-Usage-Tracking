@@ -2,6 +2,7 @@
 <html lang ="en-IE">
 <title></title>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <meta charset ="utf-8">
 	<link rel="stylesheet" href="../stylesheets/style.css">
 	<link rel="shortcut icon" href="../images/favicon.ico">
@@ -12,12 +13,10 @@
 <header>
 <!-- Navigation menu -->
 <nav>
+          <a href="/">Home</a>
           <a href="/phones/create">Create a report</a>
           <a href="/phones/editOrDelete">Edit or Delete reports</a>
-</nav>
-<!-- MTU logo from MTU.ie -->
-<a href="http://localhost:3000/" class="MTU"><img src="../images/MTU_Logo_White.png" alt="MTU-logo" class="logo"></a>
-<nav>
+          <a href="/phones/dailyAverage">Average usage</a>
 		  <a href="/phones/help">Help</a>
 		  <a href="/phones/contactUs" class="contact">About Us</a>
 </nav>
@@ -25,7 +24,7 @@
 
 <main>
 	<h1>Welcome to the MTU phone usage tracker</h1>
-	<h2>Your usage data:</h2>
+	<h2>Your selected report:</h2>
  <table id="table table-inverse">
     <thead>
       <tr>
@@ -42,12 +41,63 @@
        <td><%= report.browsing %></td>
        <td><%= report.education %></td>
        <td><%= report.shopping %></td>
-       <td><%= report.date.split()[1] %></td>
+       <td><%= report.createdAt %></td>
      </tr>
     </tbody>
-
+	<form action="/phones/edit" method="post">
+	        <p>
+                <input type="hidden" name="id" class="input" required value="<%= report.id %>" readonly>
+            </p>
+            <p>
+                 <label>Name:</label> <input type="String" name="name" class="input" required value="<%= report.name %>">
+            </p>
+            <p>
+                 <label>Hours Spent on Education:</label> <input type="Number" name="education" class="input" min="0" required value="<%= report.education %>">
+            </p>
+            <p>
+                <label>Hours Spent Browsing:</label> <input type="Number" name="browsing" required class="input" min="0" required value="<%= report.browsing %>">
+            </p>
+            <p>
+                <label>Hours Spent Shopping:</label> <input type="Number" name="shopping" class="input" min="0" required value="<%= report.shopping %>">
+		    </p>
+            <p>
+                <label>Total:</label> <input type="Number" id="sum" min="0" max="24" required value="">
+		    </p>
+		<p>
+			<input type="submit" value="Submit" class="submit">
+			<input type="reset" value="Cancel">
+		</p>
   </table>
-    </script>
+    		<script>
+
+    		$("p").click(function(){
+
+            		//iterate through each textboxes and add keyup
+            		//handler to trigger sum event
+            		$(".input").each(function() {
+
+            			$(this).keyup(function(){
+            				calculateSum();
+            			});
+            		});
+
+            	});
+
+            	function calculateSum() {
+
+            		var sum = 0;
+            		//iterate through each textboxes and add the values
+            		$(".input").each(function() {
+
+            			//add only if the value is number
+            			if(!isNaN(this.value) && this.value.length!=0) {
+            				sum += parseFloat(this.value);
+            			}
+            		});
+            		//.toFixed() method will roundoff the final sum to 2 decimal places
+            		document.getElementById("sum").value = sum;
+            	}
+            	</script>
   </body>
 </main>
 </body>

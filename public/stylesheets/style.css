@@ -3,8 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 html{
-	overflow-y:hidden;
-	overflow: hidden;
+	overflow-x:hidden;
 }
 header{
 	overflow: hidden;
@@ -25,6 +24,7 @@ body{
 	font-family: Merriweather;
 	overflow-x: hidden;
 	margin-right: -15px;
+	text-align:center;
 	
 }
 
@@ -59,15 +59,7 @@ footer{
 }
 /* Classes */
 /* A second footer class is being used to align the footer to the bottom of a page on smaller pages */
-#footer{
-	position: fixed;
-	width:100%;
-	bottom: 0;
-	text-align:center;
-	bottom:20px;
-	height:40px;
-}
-	
+
 .table{
 	left: 500px;
 	right: 500px;
@@ -81,16 +73,14 @@ footer{
 address{
 	 text-align: center;
  }
- 
+.chart{text-align:center;}
 div:not(#container){
-	 position: relative;
-	 left: -4px;
-	 background: #253034;
+	text-align:center;
+	 background: black;
 	 border: none;
 	 display: inline;
 	 text-align: center;
 	 z-index:1;
-	 padding:none;
  }
  
 form{
@@ -155,7 +145,7 @@ a {
     
  /* navigation styling */
 nav {
-    float: left;
+    text-align: center;
     margin: 15px;
 	font-family: Fjalla One; 
 	color: #ffffff;
@@ -194,4 +184,10 @@ thead {
 
 tbody tr:nth-child(even) {
     background: #282828;
+}
+
+.id{
+	width:0;
+	height:0;
+	opacity: 0;
 }

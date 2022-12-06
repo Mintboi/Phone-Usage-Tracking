@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang ="en-IE">
+<title></title>
+<head>
+    <meta charset ="utf-8">
+	<link rel="stylesheet" href="../stylesheets/style.css">
+	<link rel="shortcut icon" href="../images/favicon.ico">
+    <title>Phone Usage Tracker</title>
+</head>
+<body>
+
+<header>
+<!-- Navigation menu -->
+<nav>
+          <a href="/">Home</a>
+          <a href="/phones/create">Create a report</a>
+          <a href="/phones/editOrDelete">Edit or Delete reports</a>
+          <a href="/phones/dailyAverage">Average usage</a>
+		  <a href="/phones/help">Help</a>
+		  <a href="/phones/contactUs" class="contact">About Us</a>
+</nav>
+</header>
+
+	<form action="/phones/dailyAverage" method="post">
+	    <p>
+            <label>Name:</label> <input type="String" name="name" class="input" required>
+        </p>
+        <p>
+            <label>Start Date:</label> <input type="Date" name="startDate" class="input" required>
+        </p>
+        <p>
+            <label>End Date:</label> <input type="Date" name="endDate" required class="input" required>
+        </p>
+		<p>
+			<input type="submit" value="Submit" class="submit">
+			<input type="reset" value="Cancel">
+		</p>
+
+
+<!-- <script -->
+<!-- src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> -->
+<!-- </script> -->
+<!-- <canvas id="myChart" style="width:100%;max-width:700px"></canvas> -->
+<!-- var myChart = new Chart("myChart", { -->
+<!--   type: "line", -->
+<!--   data: {}, -->
+<!--   options: {} -->
+<!-- }); -->

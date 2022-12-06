@@ -15,12 +15,13 @@ var phoneUsageSchemaful = new Schema({
         type: Number,
         required: true
     },
-    date: {
-    type: Date,
-    required: true
-    }},
+    name: {
+        type: String,
+        required: true
+    },
+    },
     {
-    timestamps: false
+    timestamps: true
 });
 var phones = mongoose.model('phones', phoneUsageSchemaful);
 
